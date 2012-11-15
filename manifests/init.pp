@@ -24,7 +24,7 @@
 #
 class emacs {
 
-  $pkgs = [ 'emacs23-nox', 'puppet-el' ]
+  $pkgs = [ 'emacs23-nox', 'puppet-el', 'yaml-mode' ]
 
   package { $pkgs: ensure => present }
 
