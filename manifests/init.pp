@@ -2,12 +2,10 @@
 #
 # Manage emacs installation, including supporting packages.
 #
-# Currently only supports Ubuntu, tested only on 12.04.
+# Currently only supports Ubuntu (tested on 12.04) and SmartOS (tested on
+# 1.8.4)
 #
 # === Parameters
-#
-#
-# === Variables
 #
 #
 # === Examples
@@ -22,10 +20,11 @@
 #
 # Copyright 2012 Andrew Leonard, Seattle Biomedical Research Institute
 #
-class emacs {
+class emacs inherits emacs::params {
 
-  $pkgs = [ 'emacs23-nox', 'puppet-el', 'yaml-mode' ]
-
-  package { $pkgs: ensure => present }
+  package { $emacs::params::pkgs:
+    ensure   => present,
+    provider => $emacs::params::provider,
+  }
 
 }
